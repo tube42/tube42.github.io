@@ -30,7 +30,7 @@ chmod 700 ${HOME}/.ssh
 mkdir ${HOME}/tmp
 mkdir ${HOME}/bin
 
-cat << EOF > ${HOME}/tmux.conf
+cat << EOF > ${HOME}/.tmux.conf
 set -g mode-mouse on
 set -g mouse-resize-pane on
 set -g mouse-select-pane on
