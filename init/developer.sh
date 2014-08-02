@@ -12,8 +12,10 @@ mkdir ${HOME}/build
 
 
 # configure git with crap
-git config --global user.email "???"
-git config --global user.name "???"
+
+# global
+# git config --global user.email "???"
+# git config --global user.name "???"
 
 
 # for local stuff:

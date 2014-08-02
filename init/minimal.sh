@@ -14,8 +14,8 @@ sleep 5
 /etc/init.d/ssh stop
 sleep 5
 
-sed -i 's|[#]*PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config
-sed -i 's|UsePAM no|UsePAM yes|g' /etc/ssh/sshd_config
+sed -i 's|[#]*PasswordAuthentication yes|PasswordAuthentication no|g' /etc/ssh/sshd_config
+sed -i 's|UsePAM yes|UsePAM no|g' /etc/ssh/sshd_config
 /etc/init.d/ssh start
 EOF
 
