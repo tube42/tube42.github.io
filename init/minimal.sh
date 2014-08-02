@@ -1,16 +1,23 @@
 #!/bin/sh
 
 # install minimal stuff
-sudo apt-get install --no-install-recommends -y ufw tmux openssh-server openssh-client vim wget
+sudo apt-get install --no-install-recommends -y less bash
 
-# initial system setup
-sudo ufw allow 22/tcp
-sudo ufw enable
+sudo bash << EOF 
+
+apt-get install --no-install-recommends -y ufw tmux openssh-server openssh-client vim wget
+ufw allow 22/tcp
+ufw enable
+
+/etc/init.d/ssh start
+sleep 5
+/etc/init.d/ssh stop
+sleep 5
 
 sed -i 's|[#]*PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config
 sed -i 's|UsePAM no|UsePAM yes|g' /etc/ssh/sshd_config
-/etc/init.d/ssh restart
-
+/etc/init.d/ssh start
+EOF
 
 # add temporary keys
 mkdir ${HOME}/.ssh
